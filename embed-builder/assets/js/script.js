@@ -9,11 +9,11 @@ currentURL = () => new URL(inIframe ? /(https?:\/\/(?:[\d\w]+\.)?[\d\w\.]+(?::\d
 var params = currentURL().searchParams,
     hasParam = param => params.get(param) !== null,
     dataSpecified = options.dataSpecified || params.get('data'),
-    username = params.get('username') || options.username,
-    avatar = params.get('avatar') || options.avatar,
+    username = "No One#0809"//params.get('username') || options.username,
+    avatar = "https://cdn.discordapp.com/avatars/649621198581530644/73b60a8fac0b5a3d7b76dfc75d27b9f5.png"//params.get('avatar') || options.avatar,
     guiTabs = params.get('guitabs') || options.guiTabs,
     useJsonEditor = params.get('editor') === 'json' || options.useJsonEditor,
-    verified = hasParam('verified') || options.verified,
+    verified = true//hasParam('verified') || options.verified,
     reverseColumns = hasParam('reverse') || options.reverseColumns,
     noUser = localStorage.getItem('noUser') || hasParam('nouser') || options.noUser,
     onlyEmbed = hasParam('embed') || options.onlyEmbed,
@@ -79,60 +79,8 @@ var params = currentURL().searchParams,
     mainKeys = ["author", "footer", "color", "thumbnail", "image", "fields", "title", "description", "url", "timestamp"],
     jsonKeys = ["embed", "content", ...mainKeys],
     json = window.json || {
-        content: "You can~~not~~ do `this`.```py\nAnd this.\nprint('Hi')```\n*italics* or _italics_     __*underline italics*__\n**bold**     __**underline bold**__\n***bold italics***  __***underline bold italics***__\n__underline__     ~~Strikethrough~~",
-        embed: {
-            title: "Hello ~~people~~ world :wave:",
-            description: "You can use [links](https://discord.com) or emojis :smile: 😎\n```\nAnd also code blocks\n```",
-            color: 4321431,
-            timestamp: new Date().toISOString(),
-            url: "https://discord.com",
-            author: {
-                name: "Author name",
-                url: "https://discord.com",
-                icon_url: "https://unsplash.it/100"
-            },
-            thumbnail: {
-                url: "https://unsplash.it/200"
-            },
-            image: {
-                url: "https://unsplash.it/380/200"
-            },
-            footer: {
-                text: "Footer text",
-                icon_url: "https://unsplash.it/100"
-            },
-            fields: [
-                {
-                    name: "Field 1, *lorem* **ipsum**, ~~dolor~~",
-                    value: "Field value"
-                },
-                {
-                    name: "Field 2",
-                    value: "You can use custom emojis <:Kekwlaugh:722088222766923847>. <:GangstaBlob:742256196295065661>",
-                    inline: false
-                },
-                {
-                    name: "Inline field",
-                    value: "Fields can be inline",
-                    inline: true
-                },
-                {
-                    name: "Inline field",
-                    value: "*Lorem ipsum*",
-                    inline: true
-                },
-                {
-                    name: "Inline field",
-                    value: "value",
-                    inline: true
-                },
-                {
-                    name: "Another field",
-                    value: "> Nope, didn't forget about this",
-                    inline: false
-                }
-            ]
-        }
+        content: "",
+        embed: {}
     }
 
 if (dataSpecified)
